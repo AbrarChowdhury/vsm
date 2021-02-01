@@ -11,6 +11,10 @@ const wss = new WebSocket.Server({
     'server': httpServer
 })
 
+app.get("/",(req,res)=>{
+    res.send("VSM Bioforge")
+})
+
 wss.on("connection", function (ws) {
   console.log("new client connected");
   ws.on("close", function () {
