@@ -5,18 +5,19 @@ const WebSocket = require('ws')
 const port = process.env.PORT || 8080
 
 const app = express()
-
+let connection
 const httpServer = http.createServer(app)
 const wss = new WebSocket.Server({
     'server': httpServer
 })
 
 app.get("/",(req,res)=>{
-    res.send("VSM Bioforge")
+    res.send(`VSM Bioforge ${connection}`)
 })
 
 wss.on("connection", function (ws) {
   console.log("new client connected");
+  connection = "connected"
   ws.on("close", function () {
     console.log("lost one client");
   });
