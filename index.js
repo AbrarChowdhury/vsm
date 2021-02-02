@@ -2,7 +2,8 @@ const express = require('express')
 const http = require('http')
 const WebSocket = require('ws')
 
-const port = process.env.PORT || 8080
+// const port = process.env.PORT || 8080
+const port = 8080
 
 const app = express()
 let connection
